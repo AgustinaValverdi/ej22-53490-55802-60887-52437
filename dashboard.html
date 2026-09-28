@@ -1,42 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Productos</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="dashboard_style.css">
-  <script src="dashboard.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Gestión Médica</title>
+    <link rel="stylesheet" href="dashboard_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <script src="rutasprotegidas.js" defer></script>
+        <script src="responsive.js" defer></script>
+        <script src="dashboard.js" defer></script>
 </head>
 <body>
-  <div class="dashboard-container">
-    <header>
-      <span>Gestor de turnos</span>
-      <div>
-        <button class="menu">&#9776;</button>
-        <button id="logout">Cerrar Sesión</button>
-      </div>
-    </header>
-    <nav id="sidebar">
-      <ul>
-        <li><a href="#">Panel</a></li>
-      </ul>
-    </nav>
-    <main>
-      <h1>Pacientes</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Paciente</th>
-          </tr>
-        </thead>
-        <tbody id="product-table-body">
-          <!-- Los productos se cargarán aquí dinámicamente -->
-        </tbody>
-      </table>
-    </main>
-    <footer>Mi Aplicación &copy; 2024</footer>
-  </div>
+    <div class="contenedor-principal">
+        <div class="fondo-oscuro" id="fondoOscuro"></div>
+        <aside class="menu-lateral" id="menuLateral">
+            <div class="cabecera-menu">
+                <div class="tope-menu">
+                    <div>
+                        <h2>Admin Portal</h2>
+                        <p>Healthcare Management</p>
+                    </div>
+                    <button class="btn-cerrar" id="btnCerrar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <nav class="nav-principal">
+                <ul>
+                    <li class="activo"><a href="#"><i class="fa-solid fa-border-all"></i> Panel</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user-doctor"></i> Doctores</a></li>
+                    <li><a href="#"><i class="fa-solid fa-briefcase-medical"></i> Especialidades</a></li>
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Búsqueda de Pacientes</a></li>
+                </ul>
+            </nav>
+            <div class="pie-menu">
+                <ul class="nav-inferior">
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> Configuración</a></li>
+                    <li><a href="#" id="btn-cerrarsesion"><i class="fa-solid fa-arrow-right-from-bracket" ></i> Cerrar Sesión</a></li>
+                </ul>
+                <div class="perfil-usuario">
+                    <img src="https://ui-avatars.com/api/?name=Usuario&background=e5e7eb&color=6b7280" alt="Perfil">
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario" id="usuario-ingresado"></span>
+                        <span class="rol-usuario" id="descripcion-ingresada"></span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="contenido-principal">
+            <header class="cabecera-contenido">
+                <div class="titulos-cabecera">
+                    <div class="caja-titulo">
+                        <button class="btn-hamburguesa" id="btnHamburguesa">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <h1>Vista General de Gestión</h1>
+                    </div>
+                    <p>Configure el personal médico y las especialidades del departamento.</p>
+                </div>
+            </header>
+            <div class="botones-accion">
+                <button class="boton btn-primario"><i class="fa-solid fa-plus"></i> Agregar Nuevo Doctor</button>
+                <button class="boton btn-secundario"><i class="fa-solid fa-layer-group"></i> Agregar Nueva Especialidad</button>
+            </div>
+            <section class="grilla-stats">
+                <div class="tarjeta-stat">
+                    <div class="cabecera-tarjeta">
+                        <i class="fa-solid fa-suitcase-medical icono-gris"></i>
+                        <span class="etiqueta etiqueta-verde">--</span>
+                    </div>
+                    <p class="subtitulo">DOCTORES ACTIVOS</p>
+                    <h3 class="valor">--</h3>
+                </div>
+                <div class="tarjeta-stat">
+                    <div class="cabecera-tarjeta">
+                        <i class="fa-solid fa-table-cells-large icono-gris"></i>
+                        <span class="etiqueta etiqueta-gris">Estable</span>
+                    </div>
+                    <p class="subtitulo">ESPECIALIDADES ACTIVAS</p>
+                    <h3 class="valor">--</h3>
+                </div>
+                <div class="tarjeta-stat">
+                    <div class="cabecera-tarjeta">
+                        <i class="fa-regular fa-calendar-check icono-gris"></i>
+                        <span class="etiqueta etiqueta-azul">Hoy</span>
+                    </div>
+                    <p class="subtitulo">TURNOS CONFIRMADOS PARA HOY</p>
+                    <h3 class="valor">--</h3>
+                </div>
+            </section>
+            <section class="seccion-tabla">
+                <div class="cabecera-tabla">
+                    <h2>Directorio de Profesionales Médicos</h2>
+                    <div class="caja-buscador">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Buscar por nombre...">
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla">
+                    <div class="fila-tabla encabezado-tabla">
+                        <div>Nombre del Doctor</div>
+                        <div>Especialidad</div>
+                        <div>Estado de Disponibilidad</div>
+                        <div class="alinear-der">Acciones</div>
+                    </div>
+                </div>
+            </section>
+            <div class="fondo-modal " id="modalExito">
+    <div class="caja-modal">
+     <div class="icono-logout">
+    <i class="fa-solid fa-right-from-bracket"></i>
+</div>
+        <h3 >¡Hasta Pronto!</h3>
+        <p>Tu sesion ha sido cerrada correctamente</p>
+        <p>Gracias por usar el sistema</p>
+        <span>¡Nos vemos pronto!</span> 
+        <div class="icono-cara">
+        <i class="fa-regular fa-face-smile"></i>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
 </body>
 </html>

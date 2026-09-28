@@ -1,27 +1,274 @@
-.login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+/* Importar una fuente limpia y moderna */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
-.login-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-@media screen and (min-width: 600px) {
-  .login-container {
+body {
+    background: linear-gradient(135deg, #0f2c4d, #081a30);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
-  }
+    padding: 20px;
+}
 
-  .login-container form {
-    width: 400px;
-  }
+
+
+.contenedor-login {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.encabezado-logo {
+
+    text-align: center;
+    color: white;
+
+    margin-bottom: 24px;
+}
+
+.icono-logo {
+    background-color: white;
+    color: #0f2c4d;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: 0 auto 12px auto;
+}
+
+.encabezado-logo h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+
+
+.tarjeta-login {
+    background-color: #ffffff;
+    border-radius: 6px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.cuerpo-tarjeta {
+    padding: 32px;
+}
+
+.cuerpo-tarjeta h2 {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.subtitulo {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+
+
+.grupo-formulario {
+    margin-bottom: 16px;
+}
+
+.grupo-formulario label {
+    display: block;
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.contenedor-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-input input {
+    width: 100%;
+    padding: 12px 35px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #f8fafc;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contenedor-input input:focus {
+    border-color: #0f2c4d;
+}
+
+.contenedor-input .icono-izquierdo {
+    position: absolute;
+    left: 12px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.contenedor-input .icono-derecho {
+    position: absolute;
+    right: 12px;
+    color: #888;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+
+
+.boton-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #123e66;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.boton-login:hover {
+    background-color: #0f2c4d;
+}
+
+
+
+.pie-tarjeta {
+    background-color: #eaf1f7;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-top: 1px solid #d9e6f2;
+}
+
+.icono-seguridad {
+    color: #4a7299;
+    margin-top: 2px;
+}
+
+.pie-tarjeta p {
+    font-size: 0.75rem;
+    color: #4a7299;
+    line-height: 1.5;
+}
+
+
+
+.error-usuario,
+.error-contraseña,
+.error-validacion {
+    color: rgb(169, 26, 26);
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* --- MODAL DE ÉXITO --- */
+.fondo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 44, 77, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.fondo-modal.mostrar {
+    visibility: visible;
+    opacity: 1;
+}
+
+.caja-modal {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    width: 90%;
+
+
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.fondo-modal.mostrar .caja-modal {
+    transform: translateY(0);
+}
+
+.icono-modal {
+    color: #0d9488;
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.caja-modal h3 {
+    color: #0f172a;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.caja-modal p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+
+
+.spinner-carga {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid #0d9488;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
