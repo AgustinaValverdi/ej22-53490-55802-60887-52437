@@ -527,3 +527,11 @@ body {
     margin-top: 20px;
     color: rgb(188, 188, 134);
 }
+
+.tarjeta-stat {
+    background-color: #ffffff;
+}
+
+.caja-buscador {
+    background-color: #ffffff;
+}

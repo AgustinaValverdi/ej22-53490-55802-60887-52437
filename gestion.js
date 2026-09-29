@@ -13,13 +13,16 @@ const fila = x =>
     `<div class="fila-tabla"><div><strong>${esc(x.nombre)}</strong></div><div>${esc(x.descripcion)}</div><div><span class="etiqueta ${x.activa ? "etiqueta-verde" : "etiqueta-gris"}">${x.activa ? "Activo" : "Inactivo"}</span></div><div class="alinear-der acciones">`;
 
 function lista() {
-    const f = datos().filter(x => x.nombre.toLowerCase().includes(st.q.toLowerCase()));
+    const f = datos().filter(x =>
+    x.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .includes(st.q.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())
+);
     const max = Math.max(1, Math.ceil(f.length / PS)); st.pag = Math.min(st.pag, max);
     const pag = f.slice((st.pag - 1) * PS, st.pag * PS);
     $("#encabezado").innerHTML = COLS.map(c => `<div>${c}</div>`).join("") + '<div class="alinear-der">Acciones</div>';
     $("#filas").innerHTML = pag.map(x => fila(x) +
         `<button data-e="${x.id}" title="Editar"><i class="fa-solid fa-pen"></i></button><button data-d="${x.id}" class="peligro" title="Eliminar"><i class="fa-regular fa-trash-can"></i></button></div></div>`).join("")
-        || '<div class="fila-tabla"><div>Sin resultados</div></div>';
+        || `<div class="fila-tabla"><div>No se encontraron especialidades para "${esc(st.q)}"</div></div>`
     $("#resumen").textContent = `Mostrando ${pag.length} de ${f.length} registrados`;
     $("#paginas").innerHTML = Array.from({ length: max }, (_, i) => `<button class="${i + 1 === st.pag ? "sel" : ""}" data-p="${i + 1}">${i + 1}</button>`).join("");
 }
@@ -65,7 +68,7 @@ document.addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.p) { st.pag = +b.dataset.p; lista(); }
     if (b.dataset.e) abrirForm(b.dataset.e);
-    if (b.dataset.d && confirm("¿Eliminar este registro?")) {
+    if (b.dataset.d && confirm("¿Está seguro de que desea eliminar esta especialidad?")) {
         const t = DB.leer(KEY, []); t.find(o => o.id === b.dataset.d).deleted = true; DB.guardar(KEY, t); lista();
     }
 });

@@ -5,7 +5,7 @@
 
 .botones-accion {
     align-items: center;
-    flex-wrap: wrap
+    flex-wrap: wrap 
 }
 
 .acciones button,
@@ -88,4 +88,16 @@
     font-size: .85rem;
     color: var(--texto-gris);
     margin-bottom: 12px
+}
+
+#filas .fila-tabla {
+    background-color: #ffffff;
+}
+
+#buscar {
+    background-color: #ffffff;
+}
+
+.caja-buscador {
+    background-color: #ffffff;
 }
