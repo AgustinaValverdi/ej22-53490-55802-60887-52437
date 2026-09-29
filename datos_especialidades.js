@@ -20,5 +20,4 @@ if (!localStorage.getItem("esp")) {
     ].map(([nombre, licencia, e, estado]) => ({ id: guid(), nombre, licencia, especialidadId: esp[e].id, estado, deleted: false })));
 }
 const nombreEsp = id => (DB.leer("esp", []).find(e => e.id === id) || {}).nombre || "-";
-const filaDoctor = x => `<div class="fila-tabla"><div><strong>${esc(x.nombre)}</strong><br><small>ID: ${esc(x.licencia)}</small>
-</div><div><span class="etiqueta etiqueta-azul">${esc(nombreEsp(x.especialidadId))}</span></div><div><span class="etiqueta ${x.estado === "Activo" ? "etiqueta-verde" : "etiqueta-rojo"}">${esc(x.estado)}</span></div><div class="alinear-der acciones">`;
+const filaDoctor = x => `<div class="fila-tabla"><div><strong>${esc(x.nombre)}</strong><br><small>ID: ${esc(x.licencia)}</small></div><div><span class="etiqueta etiqueta-azul">${esc(nombreEsp(x.especialidadId))}</span></div><div><span class="etiqueta ${x.estado === "Activo" ? "etiqueta-verde" : "etiqueta-rojo"}">${esc(x.estado)}</span></div><div class="alinear-der acciones">`;
