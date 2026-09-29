@@ -32,7 +32,7 @@ const iniciar = (e) => {
         errorescontraseña.push("la contraseña es obligatoria")
         banderaformulario = false
     }
-    if (contraseñaingresada.length < 8) {
+    else if (contraseñaingresada.length < 8) {
         errorescontraseña.push("la contraseña debe tener al menos 8 caracteres")
         banderaformulario = false
     }
