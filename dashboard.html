@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,13 @@
     <link rel="stylesheet" href="dashboard_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-            <script src="rutasprotegidas.js" defer></script>
-        <script src="responsive.js" defer></script>
-        <script src="dashboard.js" defer></script>
+    <script src="rutasprotegidas.js" defer></script>
+    <script src="rutasprotegidas.js" defer></script>
+    <script src="responsive.js" defer></script>
+    <script src="datos.js" defer></script>
+    <script src="dashboard.js" defer></script>
 </head>
+
 <body>
     <div class="contenedor-principal">
         <div class="fondo-oscuro" id="fondoOscuro"></div>
@@ -29,15 +33,17 @@
             <nav class="nav-principal">
                 <ul>
                     <li class="activo"><a href="#"><i class="fa-solid fa-border-all"></i> Panel</a></li>
-                    <li><a href="#"><i class="fa-solid fa-user-doctor"></i> Doctores</a></li>
-                    <li><a href="#"><i class="fa-solid fa-briefcase-medical"></i> Especialidades</a></li>
-                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Búsqueda de Pacientes</a></li>
+                    <li><a href="doctores.html"><i class="fa-solid fa-user-doctor"></i> Doctores</a></li>
+                    <li><a href="especialidades.html"><i class="fa-solid fa-briefcase-medical"></i> Especialidades</a>
+                    <li><a href="pacientes.html"><i class="fa-solid fa-magnifying-glass"></i> Búsqueda de Pacientes</a>
+                    </li>
                 </ul>
             </nav>
             <div class="pie-menu">
                 <ul class="nav-inferior">
                     <li><a href="#"><i class="fa-solid fa-gear"></i> Configuración</a></li>
-                    <li><a href="#" id="btn-cerrarsesion"><i class="fa-solid fa-arrow-right-from-bracket" ></i> Cerrar Sesión</a></li>
+                    <li><a href="#" id="btn-cerrarsesion"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar
+                            Sesión</a></li>
                 </ul>
                 <div class="perfil-usuario">
                     <img src="https://ui-avatars.com/api/?name=Usuario&background=e5e7eb&color=6b7280" alt="Perfil">
@@ -62,7 +68,8 @@
             </header>
             <div class="botones-accion">
                 <button class="boton btn-primario"><i class="fa-solid fa-plus"></i> Agregar Nuevo Doctor</button>
-                <button class="boton btn-secundario"><i class="fa-solid fa-layer-group"></i> Agregar Nueva Especialidad</button>
+                <button class="boton btn-secundario"><i class="fa-solid fa-layer-group"></i> Agregar Nueva
+                    Especialidad</button>
             </div>
             <section class="grilla-stats">
                 <div class="tarjeta-stat">
@@ -109,20 +116,21 @@
                 </div>
             </section>
             <div class="fondo-modal " id="modalExito">
-    <div class="caja-modal">
-     <div class="icono-logout">
-    <i class="fa-solid fa-right-from-bracket"></i>
-</div>
-        <h3 >¡Hasta Pronto!</h3>
-        <p>Tu sesion ha sido cerrada correctamente</p>
-        <p>Gracias por usar el sistema</p>
-        <span>¡Nos vemos pronto!</span> 
-        <div class="icono-cara">
-        <i class="fa-regular fa-face-smile"></i>
-        </div>
-    </div>
-</div>
+                <div class="caja-modal">
+                    <div class="icono-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+                    <h3>¡Hasta Pronto!</h3>
+                    <p>Tu sesion ha sido cerrada correctamente</p>
+                    <p>Gracias por usar el sistema</p>
+                    <span>¡Nos vemos pronto!</span>
+                    <div class="icono-cara">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>
+
 </html>

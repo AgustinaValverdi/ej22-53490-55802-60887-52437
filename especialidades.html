@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Gestión Médica</title>
+    <link rel="stylesheet" href="dashboard_style.css">
+    <link rel="stylesheet" href="gestion_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="rutasprotegidas.js" defer></script>
+    <script src="responsive.js" defer></script>
+    <script src="sesion.js" defer></script>
+    <script src="datos_especialidades.js" defer></script>
+    <script src="gestion.js" defer></script>
+</head>
+<body data-vista="especialidades">
+    <div class="contenedor-principal">
+        <div class="fondo-oscuro" id="fondoOscuro"></div>
+        <aside class="menu-lateral" id="menuLateral">
+            <div class="cabecera-menu">
+                <div class="tope-menu">
+                    <div>
+                        <h2>Admin Portal</h2>
+                        <p>Healthcare Management</p>
+                    </div>
+                    <button class="btn-cerrar" id="btnCerrar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <nav class="nav-principal">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-border-all"></i> Panel</a></li>
+                    <li><a href="doctores.html"><i class="fa-solid fa-user-doctor"></i> Doctores</a></li>
+                    <li class="activo"><a href="especialidades.html"><i class="fa-solid fa-briefcase-medical"></i> Especialidades</a></li>
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Búsqueda de Pacientes</a></li>
+                </ul>
+            </nav>
+            <div class="pie-menu">
+                <ul class="nav-inferior">
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> Configuración</a></li>
+                    <li><a href="#" id="btn-cerrarsesion"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión</a></li>
+                </ul>
+                <div class="perfil-usuario">
+                    <img src="https://ui-avatars.com/api/?name=Usuario&background=e5e7eb&color=6b7280" alt="Perfil">
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario" id="usuario-ingresado"></span>
+                        <span class="rol-usuario" id="descripcion-ingresada"></span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="contenido-principal">
+            <header class="cabecera-contenido"><div class="titulos-cabecera"><div class="caja-titulo"><button class="btn-hamburguesa" id="btnHamburguesa"><i class="fa-solid fa-bars"></i></button><h1>Directorio de Especialidades</h1></div><p>Administre las categorías médicas, servicios y disponibilidad del personal especializado.</p></div></header>
+            <section id="vista-lista">
+              <div class="botones-accion"><div class="caja-buscador"><i class="fa-solid fa-search"></i><input id="buscar" type="text" placeholder="Buscar por nombre..."></div>
+              <button class="boton btn-primario" id="btn-nuevo"><i class="fa-solid fa-plus"></i> Nueva Especialidad</button></div>
+              <section class="seccion-tabla"><div class="contenedor-tabla"><div class="fila-tabla encabezado-tabla" id="encabezado"></div><div id="filas"></div></div>
+              <div class="pie-tabla"><span id="resumen"></span><div class="paginas" id="paginas"></div></div></section>
+            </section>
+            <section id="vista-form" hidden>
+              <p class="migas">Especialidades <strong id="form-titulo"></strong></p>
+              <form class="tarjeta-form" id="form" novalidate><h2>Formulario</h2><div id="campos"></div>
+              <div class="form-botones"><button type="button" class="boton btn-secundario" id="btn-cancelar">Cancelar</button><button type="submit" class="boton btn-primario"><i class="fa-solid fa-floppy-disk"></i> Guardar</button></div></form>
+            </section>
+            <div class="fondo-modal " id="modalExito">
+                <div class="caja-modal">
+                    <div class="icono-logout"><i class="fa-solid fa-right-from-bracket"></i></div>
+                    <h3>¡Hasta Pronto!</h3>
+                    <p>Tu sesion ha sido cerrada correctamente</p>
+                    <p>Gracias por usar el sistema</p>
+                    <span>¡Nos vemos pronto!</span>
+                    <div class="icono-cara"><i class="fa-regular fa-face-smile"></i></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

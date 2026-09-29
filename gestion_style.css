@@ -1,0 +1,91 @@
+.etiqueta-rojo {
+    background: #fee2e2;
+    color: #dc2626
+}
+
+.botones-accion {
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.acciones button,
+.paginas button {
+    background: none;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-left: 6px;
+    cursor: pointer;
+    color: var(--texto-gris)
+}
+
+.acciones .peligro {
+    color: #dc2626
+}
+
+.paginas button.sel {
+    background: var(--azul-fuerte);
+    color: #fff;
+    border-color: var(--azul-fuerte)
+}
+
+.pie-tabla {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: .85rem;
+    color: var(--texto-gris)
+}
+
+.tarjeta-form {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 24px;
+    max-width: 900px
+}
+
+.tarjeta-form h2 {
+    color: var(--texto-azul);
+    margin: 0 0 16px
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px
+}
+
+.campo label {
+    font-weight: 600;
+    font-size: .85rem
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font: inherit;
+    background: #f0f7ff
+}
+
+.campo .error {
+    color: #dc2626;
+    font-size: .8rem
+}
+
+.form-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px
+}
+
+.migas {
+    font-size: .85rem;
+    color: var(--texto-gris);
+    margin-bottom: 12px
+}
